@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://layne.ink/"/>
-  <updated>2018-07-11T02:23:09.141Z</updated>
+  <updated>2018-07-11T05:01:46.540Z</updated>
   <id>http://layne.ink/</id>
   
   <author>
@@ -17,45 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>jvm简述</title>
-    <link href="http://layne.ink/2018/07/11/jvm%E7%AE%80%E8%BF%B0/"/>
-    <id>http://layne.ink/2018/07/11/jvm简述/</id>
-    <published>2018-07-11T02:11:13.000Z</published>
-    <updated>2018-07-11T02:23:09.141Z</updated>
+    <title>init与clinit解析</title>
+    <link href="http://layne.ink/2016/07/11/init%E4%B8%8Eclinit%E8%A7%A3%E6%9E%90/"/>
+    <id>http://layne.ink/2016/07/11/init与clinit解析/</id>
+    <published>2016-07-11T02:57:43.000Z</published>
+    <updated>2018-07-11T05:01:46.540Z</updated>
+    
+    <content type="html"><![CDATA[<p>clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。</p><p>init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。</p><p>（1）clinit()方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static）中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块只能访问到定义在静态语句块之前的变量，定义在他之后的变量，在前面的静态语句块中可以赋值但不能访问。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="keyword">static</span>&#123;</span><br><span class="line">    i = <span class="number">0</span>;                                        <span class="comment">//给变量赋值可以正常通过</span></span><br><span class="line">    System.out.println(i);               <span class="comment">//这句编译器会提示“非法向前引用”</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>（2）clinit()方法与类的构造函数（或者说实例构造器中的init()方法）不同， 它不需要显示的调用父类构造器，虚拟机会保证在子类的init()方法执行之前，父类的clinit()方法已经执行完毕。因为在虚拟机中第一个被执行的clinit()方法的类肯定是java.lang.Object。</p><p>（3）由于父类的clinit()方法先执行，也就意味着父类中定义的静态语句块要优先于子类的变量赋值操作。</p><p>（4）clinit()方法对于类或者接口来说并不是必须的，如果一个类没有静态语句块，也就没有变量的赋值操作，那么编译器可以不为这个类生成clinit()方法。</p><p>（5）接口中不能使用静态语句块，但仍然可以有变量初始化的赋值操作，因此接口与类一样都会生成clinit()方法。但接口与类不同，执行接口的clinit()方法不需要先执行父接口的clinit()方法。只有当父接口中定义的变量使用时，父接口才会初始化。另外，接口的实现类在初始化时也一样不会执行接口的clinit()方法。</p><p>（6）虚拟机会保证一个类的clinit()方法在多线程环境中被正确地加锁、同步，如果多个线程同时去初始化一个类，那么只有一个线程去执行这个类的clinit()方法中有耗时很长的操作，就可能造成多个线程阻塞。</p>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。&lt;/p&gt;
+&lt;p&gt;init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方
+      
+    
     </summary>
-    
-      <category term="java" scheme="http://layne.ink/categories/java/"/>
-    
-      <category term="jvm" scheme="http://layne.ink/categories/java/jvm/"/>
     
     
       <category term="java" scheme="http://layne.ink/tags/java/"/>
     
       <category term="jvm" scheme="http://layne.ink/tags/jvm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://layne.ink/2018/07/10/hello-world/"/>
-    <id>http://layne.ink/2018/07/10/hello-world/</id>
-    <published>2018-07-10T09:48:31.582Z</published>
-    <updated>2018-07-10T09:48:31.582Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
     
   </entry>
   
