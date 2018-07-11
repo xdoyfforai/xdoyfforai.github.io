@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://layne.ink/"/>
-  <updated>2018-07-11T02:11:51.176Z</updated>
+  <updated>2018-07-11T02:23:09.141Z</updated>
   <id>http://layne.ink/</id>
   
   <author>
@@ -21,11 +21,15 @@
     <link href="http://layne.ink/2018/07/11/jvm%E7%AE%80%E8%BF%B0/"/>
     <id>http://layne.ink/2018/07/11/jvm简述/</id>
     <published>2018-07-11T02:11:13.000Z</published>
-    <updated>2018-07-11T02:11:51.176Z</updated>
+    <updated>2018-07-11T02:23:09.141Z</updated>
     
     <summary type="html">
     
     </summary>
+    
+      <category term="java" scheme="http://layne.ink/categories/java/"/>
+    
+      <category term="jvm" scheme="http://layne.ink/categories/java/jvm/"/>
     
     
       <category term="java" scheme="http://layne.ink/tags/java/"/>
