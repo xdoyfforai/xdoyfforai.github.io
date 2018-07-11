@@ -13,28 +13,27 @@
     
     
     
-    <link rel="canonical" href="http://layne.ink/2016/07/11/init与clinit解析/">
+    <link rel="canonical" href="http://layne.ink/2018/07/10/hello-world/">
     
     
-    <title>init与clinit解析 | Layne | I am a slow walker, but I never walk backwards.</title>
+    <title>Hello World | Layne | I am a slow walker, but I never walk backwards.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="java,jvm">
-    <meta name="description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。">
-<meta name="keywords" content="java,jvm">
+    <meta name="keywords" content="">
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
-<meta property="og:title" content="init与clinit解析">
-<meta property="og:url" content="http://layne.ink/2016/07/11/init与clinit解析/index.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://layne.ink/2018/07/10/hello-world/index.html">
 <meta property="og:site_name" content="Layne">
-<meta property="og:description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-11T05:23:53.457Z">
+<meta property="og:updated_time" content="2018-07-10T09:48:31.582Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="init与clinit解析">
-<meta name="twitter:description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
     
         <link rel="alternate" type="application/atom+xml" title="Layne" href="/atom.xml">
     
@@ -115,7 +114,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">init与clinit解析</div>
+        <div class="flex-col header-title ellipsis">Hello World</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -137,15 +136,13 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">init与clinit解析</h1>
+        <h1 class="title">Hello World</h1>
         <h5 class="subtitle">
             
-                <time datetime="2016-07-11T02:57:43.000Z" itemprop="datePublished" class="page-time">
-  2016-07-11
+                <time datetime="2018-07-10T09:48:31.582Z" itemprop="datePublished" class="page-time">
+  2018-07-10
 </time>
 
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/jvm/">jvm</a></li></ul>
 
             
         </h5>
@@ -159,18 +156,23 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Quick-Start"><span class="post-toc-number">1.</span> <span class="post-toc-text">Quick Start</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Create-a-new-post"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Create a new post</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Run-server"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Run server</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Generate-static-files"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Generate static files</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Deploy-to-remote-sites"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-init与clinit解析"
+
+<article id="post-hello-world"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">init与clinit解析</h1>
+        <h1 class="post-card-title">Hello World</h1>
         <div class="post-meta">
-            <time class="post-time" title="2016-07-11 10:57:43" datetime="2016-07-11T02:57:43.000Z"  itemprop="datePublished">2016-07-11</time>
+            <time class="post-time" title="2018-07-10 17:48:31" datetime="2018-07-10T09:48:31.582Z"  itemprop="datePublished">2018-07-10</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/jvm/">jvm</a></li></ul>
-
 
 
             
@@ -181,14 +183,15 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。</p>
-<p>init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。<br><a id="more"></a><br>（1）clinit()方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static）中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块只能访问到定义在静态语句块之前的变量，定义在他之后的变量，在前面的静态语句块中可以赋值但不能访问。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="keyword">static</span>&#123;</span><br><span class="line">    i = <span class="number">0</span>;                                        <span class="comment">//给变量赋值可以正常通过</span></span><br><span class="line">    System.out.println(i);               <span class="comment">//这句编译器会提示“非法向前引用”</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>（2）clinit()方法与类的构造函数（或者说实例构造器中的init()方法）不同， 它不需要显示的调用父类构造器，虚拟机会保证在子类的init()方法执行之前，父类的clinit()方法已经执行完毕。因为在虚拟机中第一个被执行的clinit()方法的类肯定是java.lang.Object。</p>
-<p>（3）由于父类的clinit()方法先执行，也就意味着父类中定义的静态语句块要优先于子类的变量赋值操作。</p>
-<p>（4）clinit()方法对于类或者接口来说并不是必须的，如果一个类没有静态语句块，也就没有变量的赋值操作，那么编译器可以不为这个类生成clinit()方法。</p>
-<p>（5）接口中不能使用静态语句块，但仍然可以有变量初始化的赋值操作，因此接口与类一样都会生成clinit()方法。但接口与类不同，执行接口的clinit()方法不需要先执行父接口的clinit()方法。只有当父接口中定义的变量使用时，父接口才会初始化。另外，接口的实现类在初始化时也一样不会执行接口的clinit()方法。</p>
-<p>（6）虚拟机会保证一个类的clinit()方法在多线程环境中被正确地加锁、同步，如果多个线程同时去初始化一个类，那么只有一个线程去执行这个类的clinit()方法中有耗时很长的操作，就可能造成多个线程阻塞。</p>
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
         </div>
 
@@ -197,7 +200,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-11T05:23:53.457Z" itemprop="dateUpdated">2018-07-11 13:23:53</time>
+    最后更新时间：<time datetime="2018-07-10T09:48:31.582Z" itemprop="dateUpdated">2018-07-10 17:48:31</time>
 </span><br>
 
 
@@ -223,8 +226,6 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jvm/">jvm</a></li></ul>
-
 
             
 <div class="page-share-wrap">
@@ -233,7 +234,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://layne.ink/2016/07/11/init与clinit解析/&title=《init与clinit解析》 — Layne&pic=http://layne.ink/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://layne.ink/2018/07/10/hello-world/&title=《Hello World》 — Layne&pic=http://layne.ink/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -243,23 +244,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/07/11/init与clinit解析/&title=《init与clinit解析》 — Layne&source=clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。
-init:在实例创建出来的时候调用，包括调用new操作符；调..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2018/07/10/hello-world/&title=《Hello World》 — Layne&source=java,jvm,算法,并发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://layne.ink/2016/07/11/init与clinit解析/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://layne.ink/2018/07/10/hello-world/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《init与clinit解析》 — Layne&url=http://layne.ink/2016/07/11/init与clinit解析/&via=http://layne.ink" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello World》 — Layne&url=http://layne.ink/2018/07/10/hello-world/&via=http://layne.ink" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://layne.ink/2016/07/11/init与clinit解析/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://layne.ink/2018/07/10/hello-world/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -279,21 +279,14 @@ init:在实例创建出来的时候调用，包括调用new操作符；调..." d
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/07/10/hello-world/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Hello World</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2016/05/11/序列化与反序列化/" id="post-next" class="post-nav-link">
+      <a href="/2016/07/11/init与clinit解析/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">序列化与反序列化</h4>
+        <h4 class="title">init与clinit解析</h4>
       </a>
     </div>
   
@@ -316,7 +309,7 @@ init:在实例创建出来的时候调用，包括调用new操作符；调..." d
     <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
         var gitment = new Gitment({
-            id: 'Mon Jul 11 2016 10:57:43 GMT+0800',
+            id: 'Tue Jul 10 2018 17:48:31 GMT+0800',
             owner: 'xdoyfforai',
             repo: 'gitment',
             oauth: {
@@ -408,7 +401,7 @@ init:在实例创建出来的时候调用，包括调用new操作符；调..." d
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://layne.ink/2016/07/11/init与clinit解析/&title=《init与clinit解析》 — Layne&pic=http://layne.ink/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://layne.ink/2018/07/10/hello-world/&title=《Hello World》 — Layne&pic=http://layne.ink/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -418,23 +411,22 @@ init:在实例创建出来的时候调用，包括调用new操作符；调..." d
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/07/11/init与clinit解析/&title=《init与clinit解析》 — Layne&source=clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。
-init:在实例创建出来的时候调用，包括调用new操作符；调..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2018/07/10/hello-world/&title=《Hello World》 — Layne&source=java,jvm,算法,并发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://layne.ink/2016/07/11/init与clinit解析/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://layne.ink/2018/07/10/hello-world/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《init与clinit解析》 — Layne&url=http://layne.ink/2016/07/11/init与clinit解析/&via=http://layne.ink" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hello World》 — Layne&url=http://layne.ink/2018/07/10/hello-world/&via=http://layne.ink" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://layne.ink/2016/07/11/init与clinit解析/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://layne.ink/2018/07/10/hello-world/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -445,7 +437,7 @@ init:在实例创建出来的时候调用，包括调用new操作符；调..." d
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aS3KDQAxFUe9/02SaqsRwn9RxpVuXUQqD4Xig6Pd64eP6drw7c3/+5zXv/r6/t3XIkCFjW8Z1e/Brak/hsIfnypAhYwCDh8X7e8ldPIjz58qQIUMGSQF50Oz/EDJkyJBBXistUDlJhgwZMjpFbC0FJO05kiwuq8VlyJCxIYM3yz7/95/MN2TIkLEV4woPflcnXMZvJUOGjKMZtcQufaFO4A4STRkyZAxgrF2DSEtTXtZ+dJtDhgwZ/4zBw2WQroVBtnavDBkyJjBqTfm1oZkPJB4CsQwZMo5jpCsU/eYaOROvgMiQIeNoBrmIfx0JjjyYkgI7mLjKkCFjW0Ya5vgLkbKWPB2VxzJkyDiawbtVPGVMR5LpwAD9D5EhQ8ZBDBI001FibRWDB99fPpUhQ8YAxqqWPWmr9QeZMmTImMaotd3TQEmSyBQcdw1lyJCxOYN/KW+N1a6pDRtkyJAxh8GjMlmzqIXa1rKFDBkyBjBqA8vap2lLDuFlyJAxgFEbDKSpZOc7H54lQ4aMMYxaMOXX1BbC4iJWhgwZYxhr1786CxworZQhQ8ahjFVrFsFvhovk4LkyZMg4msEPnuTxIJu2/vlihwwZMs5jpEE2fYl+yJYhQ4aMeK0hxKdn0lUPGTJkyEjb/f0RZjGflSFDhgwcfPvrYsUyWIYMGQMY/SSvM6rsFLoyZMiYwOClIwnQ6cCAjw0WDDVlyJCxH+MLcGg39ZMpbAsAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aSY7CQAwFUO5/6fQWCaXy7RoErVcrFCB52VieXq/4XDfn89v3K+Nv368sPri4uNPca3jy33xC7+jjVxrfHxcX9yT3LmJUA9M4qCX3f7Dh4uJ+JfcuCCbXk5QIFxf3f3ATSl4s4eLifg83T1N6bY5VxRUuLu4Zbt6l3Pd5S38XFxe3xb2Kp3q33lNun46Li3uEmweUZclHUHQ9tFdwcXEPcmdGqtWXSQaxUa2Gi4u7gZuPRWeaqr0maZSR4eLibuD2BqLVtmkvzN2+GC4u7hFu/oceLk9lqmscuLi4+7gz5U2vcMpLo2gmjIuLu4Hba1X0miDV8PfQy8HFxd3Gnb/FOFTNBMFCrYaLi7uIuyoRqRYz1WQIFxf3JDd/cL48UQ1z5RUNXFzcg9zeA6pjmLxkai5m4eLiLuX2xhvJokZ+pVCr4eLiHuQmSUy1FZLfs7BsgYuLu417Fc94CDqTvkTlEC4u7hFufqrDkmSRYr64wsXF3cftrVLl6Ut1pPrwMri4uAe5yUJVNcVJyqEttRouLu5xbm85o5o24eLi/ha3t5CxqtDCxcU9yd2XoMyvZOHi4p7nrvpztalaLahwcXGPcP8Ats/iMR1KA2kAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
