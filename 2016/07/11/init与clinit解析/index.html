@@ -23,18 +23,18 @@
     
     
     <meta name="keywords" content="java,jvm">
-    <meta name="description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。 （">
+    <meta name="description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。">
 <meta name="keywords" content="java,jvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="init与clinit解析">
 <meta property="og:url" content="http://layne.ink/2016/07/11/init与clinit解析/index.html">
 <meta property="og:site_name" content="Layne">
-<meta property="og:description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。 （">
+<meta property="og:description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-11T05:01:46.540Z">
+<meta property="og:updated_time" content="2018-07-11T05:18:17.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="init与clinit解析">
-<meta name="twitter:description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。 （">
+<meta name="twitter:description" content="clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。 init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。">
     
         <link rel="alternate" type="application/atom+xml" title="Layne" href="/atom.xml">
     
@@ -145,6 +145,8 @@
 </time>
 
 
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/jvm/">jvm</a></li></ul></li></ul>
+
             
         </h5>
     </div>
@@ -167,6 +169,8 @@
             <time class="post-time" title="2016-07-11 10:57:43" datetime="2016-07-11T02:57:43.000Z"  itemprop="datePublished">2016-07-11</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/">java</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/java/jvm/">jvm</a></li></ul></li></ul>
+
 
 
             
@@ -178,8 +182,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。</p>
-<p>init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。</p>
-<p>（1）clinit()方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static）中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块只能访问到定义在静态语句块之前的变量，定义在他之后的变量，在前面的静态语句块中可以赋值但不能访问。</p>
+<p>init:在实例创建出来的时候调用，包括调用new操作符；调用Class或java.lang.reflect.Constructor对象的newInstance()方法；调用任何现有对象的clone()方法；通过java.io.ObjectInputStream类的getObject()方法反序列化。<br><a id="more"></a><br>（1）clinit()方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块（static）中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块只能访问到定义在静态语句块之前的变量，定义在他之后的变量，在前面的静态语句块中可以赋值但不能访问。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">  <span class="keyword">static</span>&#123;</span><br><span class="line">    i = <span class="number">0</span>;                                        <span class="comment">//给变量赋值可以正常通过</span></span><br><span class="line">    System.out.println(i);               <span class="comment">//这句编译器会提示“非法向前引用”</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>（2）clinit()方法与类的构造函数（或者说实例构造器中的init()方法）不同， 它不需要显示的调用父类构造器，虚拟机会保证在子类的init()方法执行之前，父类的clinit()方法已经执行完毕。因为在虚拟机中第一个被执行的clinit()方法的类肯定是java.lang.Object。</p>
 <p>（3）由于父类的clinit()方法先执行，也就意味着父类中定义的静态语句块要优先于子类的变量赋值操作。</p>
@@ -194,7 +197,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-11T05:01:46.540Z" itemprop="dateUpdated">2018-07-11 13:01:46</time>
+    最后更新时间：<time datetime="2018-07-11T05:18:17.020Z" itemprop="dateUpdated">2018-07-11 13:18:17</time>
 </span><br>
 
 
@@ -240,7 +243,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/07/11/init与clinit解析/&title=《init与clinit解析》 — Layne&source=java,jvm,算法,并发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/07/11/init与clinit解析/&title=《init与clinit解析》 — Layne&source=clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。
+init:在实例创建出来的时候调用，包括调用new操作符；调..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -393,7 +397,8 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/07/11/init与clinit解析/&title=《init与clinit解析》 — Layne&source=java,jvm,算法,并发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/07/11/init与clinit解析/&title=《init与clinit解析》 — Layne&source=clinit：在jvm第一次加载class文件时调用，包括静态变量初始化和静态语句块的执行。
+init:在实例创建出来的时候调用，包括调用new操作符；调..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
