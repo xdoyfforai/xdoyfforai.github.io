@@ -31,7 +31,7 @@
 <meta property="og:site_name" content="Layne">
 <meta property="og:description" content="引言将 Java 对象序列化为二进制文件的 Java 序列化技术是 Java 系列技术中一个较为重要的技术点，在大部分情况下，开发人员只需要了解被序列化的类需要实现Serializable接口，使用ObjectInputStream和ObjectOutputStream进行对象的读写。然而在有些情况下，光知道这些还远远不够，文章列举了笔者遇到的一些真实情境，它们与 Java 序列化相关，通过分析情">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-14T13:40:12.013Z">
+<meta property="og:updated_time" content="2018-07-14T13:41:42.069Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="序列化与反序列化">
 <meta name="twitter:description" content="引言将 Java 对象序列化为二进制文件的 Java 序列化技术是 Java 系列技术中一个较为重要的技术点，在大部分情况下，开发人员只需要了解被序列化的类需要实现Serializable接口，使用ObjectInputStream和ObjectOutputStream进行对象的读写。然而在有些情况下，光知道这些还远远不够，文章列举了笔者遇到的一些真实情境，它们与 Java 序列化相关，通过分析情">
@@ -188,7 +188,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>将 Java 对象序列化为二进制文件的 Java 序列化技术是 Java 系列技术中一个较为重要的技术点，在大部分情况下，开发人员只需要了解被序列化的类需要实现<code>Serializable</code>接口，使用<code>ObjectInputStream</code>和<code>ObjectOutputStream</code>进行对象的读写。然而在有些情况下，光知道这些还远远不够，文章列举了笔者遇到的一些真实情境，它们与 Java 序列化相关，通过分析情境出现的原因，使读者轻松牢记 Java 序列化中的一些高级认识。</p>
+            <h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>将 Java 对象序列化为二进制文件的 Java 序列化技术是 Java 系列技术中一个较为重要的技术点，在大部分情况下，开发人员只需要了解被序列化的类需要实现<code>Serializable</code>接口，使用<code>ObjectInputStream</code>和<code>ObjectOutputStream</code>进行对象的读写。然而在有些情况下，光知道这些还远远不够，文章列举了笔者遇到的一些真实情境，它们与 Java 序列化相关，通过分析情境出现的原因，使读者轻松牢记 Java 序列化中的一些高级认识。<br><a id="more"></a></p>
 <h3 id="关于序列化-ID"><a href="#关于序列化-ID" class="headerlink" title="关于序列化 ID"></a>关于序列化 ID</h3><p>虚拟机是否允许反序列化，不仅取决于类路径和功能代码是否一致，一个非常重要的一点是两个类的序列化 ID 是否一致（就是 <code>private static final long serialVersionUID = 1L</code>）。即使两个类的功能代码完全一致，但是序列化 ID 不同，他们也无法相互序列化和反序列化。</p>
 <p>简单来说，Java的序列化机制是通过在运行时判断类的<code>serialVersionUID</code>来验证版本一致性的。在进行反序列化时，JVM会把传来的字节流中的<code>serialVersionUID</code>与本地相应实体（类）的<code>serialVersionUID</code>进行比较，如果相同就认为是一致的，可以进行反序列化，否则就会出现序列化版本不一致的异常。</p>
 <p>当实现<code>java.io.Serializable</code>接口的实体（类）没有显式地定义一个名为<code>serialVersionUID</code>，类型为long的变量时，Java序列化机制会根据编译的class自动生成一个<code>serialVersionUID</code>作序列化版本比较用，这种情况下，只有同一次编译生成的class才会生成相同的<code>serialVersionUID</code> 。如果我们不希望通过编译来强制划分软件版本，即实现序列化接口的实体能够兼容先前版本，未作更改的类，就需要显式地定义一个名为<code>serialVersionUID</code>，类型为long的变量，不修改这个变量值的序列化实体都可以相互进行串行化和反串行化。</p>
@@ -225,7 +225,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-07-14T13:40:12.013Z" itemprop="dateUpdated">2018-07-14 21:40:12</time>
+    最后更新时间：<time datetime="2018-07-14T13:41:42.069Z" itemprop="dateUpdated">2018-07-14 21:41:42</time>
 </span><br>
 
 
@@ -271,7 +271,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/05/11/序列化与反序列化/&title=《序列化与反序列化》 — Layne&source=java,jvm,算法,并发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/05/11/序列化与反序列化/&title=《序列化与反序列化》 — Layne&source=引言将 Java 对象序列化为二进制文件的 Java 序列化技术是 Java 系列技术中一个较为重要的技术点，在大部分情况下，开发人员只需要了解被序列化的..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -438,7 +438,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/05/11/序列化与反序列化/&title=《序列化与反序列化》 — Layne&source=java,jvm,算法,并发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://layne.ink/2016/05/11/序列化与反序列化/&title=《序列化与反序列化》 — Layne&source=引言将 Java 对象序列化为二进制文件的 Java 序列化技术是 Java 系列技术中一个较为重要的技术点，在大部分情况下，开发人员只需要了解被序列化的..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
